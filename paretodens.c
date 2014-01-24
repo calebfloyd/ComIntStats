@@ -1,20 +1,23 @@
-double pareto(float x,  float a, float b);
+#include <stdio.h>
+#include <math.h>
+
+double pareto(float x,  float alpha, float beta);
 
 int main()
 {
   float x;
-  float a;
-  float b;
+  float alpha;
+  float beta;
   
   printf( "Input the distribution parameters:" );
   scanf( "%f", &x );
-  scanf( "%f", &a );
-  scanf( "%f", &b );
-  printf( "The density is %f\n", pareto( x, a, b ) );
+  scanf( "%f", &alpha );
+  scanf( "%f", &beta );
+  printf( "The density is %f\n", pareto( x, alpha, beta ) );
   getchar(); 
 }
 
-double pareto(float x,  float a, float b);
+double pareto(float x,  float alpha, float beta)
 {
-	return (b*(a^b))/(x^(b+1))
+	return (beta * pow(alpha, beta))/(pow(x, (beta+1)));
 }
