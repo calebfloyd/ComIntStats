@@ -5,14 +5,13 @@ double pareto(float x,  float alpha, float beta);
 
 int main()
 {
-  float x;
-  float alpha;
-  float beta;
+  float x, alpha, beta;
   
-  printf( "Input the distribution parameters:" );
+  printf( "Input the distribution parameters in the order (x, alpha, beta): " );
   scanf( "%f", &x );
   scanf( "%f", &alpha );
   scanf( "%f", &beta );
+  
   printf( "The density is %f\n", pareto( x, alpha, beta ) );
   getchar(); 
 }
