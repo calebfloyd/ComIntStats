@@ -1,22 +1,13 @@
-#include <stdio.h>
-#include <math.h>
+#include <R.h>
 
-double paretodens(double x, double alpha, double beta) {
-	if (alpha < x && alpha > 0 && beta > 0) {
-		printf ("%f\n", (beta * pow(alpha, beta)) / (pow(x, (beta + 1))));
-		return beta;
+void paretodens(double *x, double *alpha, double *beta, double *result) {
+	if (*alpha < *x && *alpha > 0 && *beta > 0) {
+		*result = (*beta * pow(*alpha, *beta)) / (pow(*x, (*beta + 1)));
 	}
-	else if(alpha < 0 || beta < 0) {
-		return NAN;
-		printf ("Fix parameter values.\n");
+	else if(*alpha < 0 || *beta < 0) {
+		*result = NAN;
 	}
-	else {
-		return 0.00;
-	}
-}
-
-int main(){
-    float x, alpha, beta;  
-    scanf ("%f %f %f", &x, &alpha, &beta);
-	printf ("%f\n", paretodens(x, alpha, beta));
+	else{
+		*result = 0.0;
+	}  
 }
