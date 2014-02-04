@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <math.h>
 
-double pareto(float x,  float alpha, float beta);
-
-int main()
-{
-  float x, alpha, beta;
-  
-  printf( "Input the distribution parameters in the order (x, alpha, beta): " );
-  scanf( "%f", &x );
-  scanf( "%f", &alpha );
-  scanf( "%f", &beta );
-  
-  printf( "The density is %f\n", pareto( x, alpha, beta ) );
-  getchar(); 
+double paretodens(double x, double alpha, double beta) {
+	if (alpha < x && alpha > 0 && beta > 0) {
+		printf ("%f\n", (beta * pow(alpha, beta)) / (pow(x, (beta + 1))));
+		return beta;
+	}
+	else if(alpha < 0 || beta < 0) {
+		return NAN;
+		printf ("Fix parameter values.\n");
+	}
+	else {
+		return 0.00;
+	}
 }
 
-double pareto(float x,  float alpha, float beta)
-{
-	return (beta * pow(alpha, beta))/(pow(x, (beta+1)));
+int main(){
+    float x, alpha, beta;  
+    scanf ("%f %f %f", &x, &alpha, &beta);
+	printf ("%f\n", paretodens(x, alpha, beta));
 }
